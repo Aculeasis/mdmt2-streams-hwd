@@ -122,11 +122,11 @@ class StreamVOSK(StreamDetector, threading.Thread):
                 if self._current_state != -2:
                     break
         self._final_time = time.time()
-        self.processing = False
         candidate = candidate if candidate and candidate[2] else candidate_p
         if candidate:
             *self._model_info, self.text = candidate
         self.is_ok = bool(self.text)
+        self.processing = False
 
     def _has_detect(self):
         if self._current_state == -2:
